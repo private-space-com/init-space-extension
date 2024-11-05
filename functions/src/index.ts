@@ -12,17 +12,17 @@ import * as functions from 'firebase-functions';
 import { Request, Response } from 'express';
 
 exports.exchangeToken = functions.https.onRequest(
-  (req: Request, res: Response) => {
-    const greeting = `hello World`;
+  (_: Request, res: Response) => {
+    const greeting = 'hello World';
 
     res.send(greeting);
   },
 );
 
-export const onInit = functions.tasks.onTaskDispatched(async (data) => {
+export const onInit = functions.tasks.onTaskDispatched(async () => {
   console.log('Hello World, onInit');
 });
 
-export const onConfigUpdate = functions.tasks.onTaskDispatched(async (data) => {
+export const onConfigUpdate = functions.tasks.onTaskDispatched(async () => {
   console.log('Hello World, onConfigUpdate');
 });
