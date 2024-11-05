@@ -3,12 +3,12 @@
 
 # Identifier for your extension
 # TODO: Replace this with an descriptive name for your extension.
-name: private-space
+name: init-space
 version: 0.0.1 # Follow semver versioning
 specVersion: v1beta # Version of the Firebase Extensions specification
 
 # Friendly display name for your extension (~3-5 words)
-displayName: Private Space
+displayName: Private Space Init Extension
 # Brief description of the task your extension performs (~1 sentence)
 description: >-
   Setup a custom space in PrivateSpace system.
@@ -17,7 +17,7 @@ license: Apache-2.0 # https://spdx.org/licenses/
 
 # Public URL for the source code of your extension.
 # TODO:  Replace this with your GitHub repo.
-sourceUrl: https://github.com/ORG_OR_USER/REPO_NAME
+sourceUrl: https://github.com/private-space-com/init-space-extension
 
 # Specify whether a paid-tier billing plan is required to use your extension.
 # Learn more in the docs: https://firebase.google.com/docs/extensions/reference/extension-yaml#billing-required-field
@@ -43,7 +43,7 @@ resources:
     properties:
       eventTrigger:
         eventType: google.firebase.extensions.v1beta.installed
-      runtime: 'nodejs16'
+      runtime: "nodejs16"
 
   - name: onConfigUpdate
     type: firebaseextensions.v1beta.function
@@ -52,7 +52,7 @@ resources:
     properties:
       eventTrigger:
         eventType: google.firebase.extensions.v1beta.configUpdated
-      runtime: 'nodejs16'
+      runtime: "nodejs16"
 
   - name: exchangeToken
     type: firebaseextensions.v1beta.function
@@ -60,7 +60,7 @@ resources:
       HTTP POST triggered function to exchange Private Space accessToken for Space accessToken.
     properties:
       httpsTrigger: {}
-      runtime: 'nodejs16'
+      runtime: "nodejs16"
 
 # In the `params` field, set up your extension's user-configured parameters.
 # Learn more in the docs:
