@@ -8,21 +8,21 @@
  * https://firebase.google.com/docs/extensions/publishers
  */
 
-import * as functions from "firebase-functions";
-import {Request, Response} from "express";
+import * as functions from 'firebase-functions';
+import { Request, Response } from 'express';
 
-exports.greetTheWorld = functions.https.onRequest(
+exports.exchangeToken = functions.https.onRequest(
   (req: Request, res: Response) => {
-    // Here we reference a user-provided parameter
-    // (its value is provided by the user during installation)
-    const consumerProvidedGreeting = process.env.GREETING;
-
-    // And here we reference an auto-populated parameter
-    // (its value is provided by Firebase after installation)
-    const instanceId = process.env.EXT_INSTANCE_ID;
-
-    const greeting = `${consumerProvidedGreeting} World from ${instanceId}`;
+    const greeting = `hello World`;
 
     res.send(greeting);
-  }
+  },
 );
+
+export const onInit = functions.tasks.onTaskDispatched(async (data) => {
+  console.log('Hello World, onInit');
+});
+
+export const onConfigUpdate = functions.tasks.onTaskDispatched(async (data) => {
+  console.log('Hello World, onConfigUpdate');
+});

@@ -17,7 +17,7 @@ license: Apache-2.0 # https://spdx.org/licenses/
 
 # Public URL for the source code of your extension.
 # TODO:  Replace this with your GitHub repo.
-sourceUrl: https://github.com/private-space-com/init-space-extension
+sourceUrl: https://github.com/private-space-com/init-space-extension/tree/master
 
 # Specify whether a paid-tier billing plan is required to use your extension.
 # Learn more in the docs: https://firebase.google.com/docs/extensions/reference/extension-yaml#billing-required-field
@@ -44,6 +44,7 @@ resources:
       eventTrigger:
         eventType: google.firebase.extensions.v1beta.installed
       runtime: "nodejs16"
+      sourceDirectory: functions
 
   - name: onConfigUpdate
     type: firebaseextensions.v1beta.function
@@ -53,6 +54,7 @@ resources:
       eventTrigger:
         eventType: google.firebase.extensions.v1beta.configUpdated
       runtime: "nodejs16"
+      sourceDirectory: functions
 
   - name: exchangeToken
     type: firebaseextensions.v1beta.function
@@ -61,6 +63,7 @@ resources:
     properties:
       httpsTrigger: {}
       runtime: "nodejs16"
+      sourceDirectory: functions
 
 # In the `params` field, set up your extension's user-configured parameters.
 # Learn more in the docs:
@@ -81,3 +84,13 @@ params:
     type: string
     required: true
     immutable: false
+lifecycleEvents:
+  onInstall:
+    function: onInit
+    processingMessage: init extension space
+  onUpdate:
+    function: onConfigUpdate
+    processingMessage: update extension space
+  onConfigure:
+    function: onConfigUpdate
+    processingMessage: update extension space
