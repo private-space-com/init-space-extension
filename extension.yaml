@@ -41,8 +41,7 @@ resources:
     description: >-
       Function triggered when the extension is installed. Sends a confirmation hook to Private Space to confirm Space is ready to use.
     properties:
-      eventTrigger:
-        eventType: google.firebase.extensions.v1beta.installed
+      taskQueueTrigger: {}
       runtime: "nodejs16"
 
   - name: onConfigUpdate
@@ -50,8 +49,7 @@ resources:
     description: >-
       Function triggered when the extension's parameters are updated. Sends a confirmation hook to Private Space to confirm Space is ready to use.
     properties:
-      eventTrigger:
-        eventType: google.firebase.extensions.v1beta.configUpdated
+      taskQueueTrigger: {}
       runtime: "nodejs16"
 
   - name: exchangeToken
