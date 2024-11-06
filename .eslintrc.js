@@ -22,20 +22,9 @@ module.exports = {
     "/generated/**/*", // Ignore generated files.
   ],
   plugins: ["@typescript-eslint", "import"],
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "prettier",
-  ],
   rules: {
     quotes: ["error", "single"],
     "import/no-unresolved": 0,
-    "object-curly-spacing": ["error", "always"],
-    "prettier/prettier": [
-      "error",
-      {
-        endOfLine: "auto",
-      },
-    ],
+    indent: ["error", 2],
   },
 };

@@ -9,7 +9,7 @@
  */
 
 import * as functions from 'firebase-functions/v1';
-import { Request, Response } from 'express';
+import {Request, Response} from 'express';
 
 exports.exchangeToken = functions.https.onRequest(
   (_: Request, res: Response) => {
