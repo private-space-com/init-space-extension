@@ -8,7 +8,7 @@
  * https://firebase.google.com/docs/extensions/publishers
  */
 
-import * as functions from 'firebase-functions';
+import * as functions from 'firebase-functions/v1';
 import { Request, Response } from 'express';
 
 exports.exchangeToken = functions.https.onRequest(
@@ -19,10 +19,12 @@ exports.exchangeToken = functions.https.onRequest(
   },
 );
 
-export const onInit = functions.tasks.onTaskDispatched(async () => {
+export const onInit = functions.tasks.taskQueue().onDispatch(async () => {
   console.log('Hello World, onInit');
 });
 
-export const onConfigUpdate = functions.tasks.onTaskDispatched(async () => {
-  console.log('Hello World, onConfigUpdate');
-});
+export const onConfigUpdate = functions.tasks
+  .taskQueue()
+  .onDispatch(async () => {
+    console.log('Hello World, onConfigUpdate');
+  });
