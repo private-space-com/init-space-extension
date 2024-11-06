@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run compile",
     "build:watch": "npm run clean && tsc --watch",
     "clean": "rm -rf lib",
-    "compile": "tsc",
+    "compile": "npx tsc",
     "test": "(cd integration-tests && firebase emulators:exec 'npm run mocha' -P demo-test)",
     "emulators": "npm run build && cd integration-tests && firebase emulators:start --project=demo-test"
   },
